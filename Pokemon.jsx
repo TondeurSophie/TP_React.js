@@ -5,10 +5,11 @@ export default function Pokemon() {
   const [pokemonList, setPokemonList] = useState([]);
   //Requête au niveau de l'API Pokémon
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=10").then(reponse => reponse.json()).then(data => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=10000").then(reponse => reponse.json()).then(data => {
       //Met à jour la liste des pokemon
     setPokemonList(data.results);
-      })  }, []);
+      })  }, 
+      []);
 
   return (
     <div>
@@ -24,11 +25,8 @@ function PokemonDetail({ url }) {
   const [pokemon, setPokemon] = useState(null);
 
   useEffect(() => {
-    fetch(url)
-      .then(reponse => reponse.json())
-      .then(data => setPokemon(data))
-  }, [url]);
-//Si pas de pokemon affichage 
+    fetch(url).then(reponse => reponse.json()).then(data => setPokemon(data)).catch(error => console.error(error));}, [url]);
+//Si pas de pokemon affichage du chargement
   if (!pokemon) {
     return <div>Chargement en cours...</div>;
   }
