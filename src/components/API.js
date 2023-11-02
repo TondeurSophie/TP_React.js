@@ -65,17 +65,19 @@ function PokemonDetail({ url }) {
   };
 
   return (
-    <div>
-      <h1>{pokemon.name}</h1>
-      <p>Numéro: {pokemon.id}</p>
-      <p>Type(s): {pokemon.types.map(type => type.type.name).join(', ')}</p>
-      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-      <br />
-      <button className="bouton_add" onClick={ajouter}>
-        Ajouter au Pokédex
-      </button>
-      <br />
-      
+    <div className='page'>
+        <div className='case'>
+        <h1>{pokemon.name}</h1>
+        <p>Numéro: {pokemon.id}</p>
+        <p>Type(s): {pokemon.types.map(type => type.type.name).join(', ')}</p>
+        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+        <br />
+        <button className="bouton_add" onClick={ajouter}>
+            Ajouter au Pokédex
+        </button>
+        <br />
+        
+        </div>
     </div>
   );
 }
