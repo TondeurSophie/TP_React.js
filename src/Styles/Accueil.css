@@ -23,7 +23,7 @@
 .case{
     background-color: rgb(255, 255, 255);
     border-radius: 10%;
-    width: 20%;
+    width: 300px;
     display: flex;
     justify-content: center;
     flex-direction: column;
