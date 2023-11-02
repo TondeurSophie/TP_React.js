@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       
       <div className="header">
-      <img src={`${process.env.PUBLIC_URL}/${image.logo}`} alt=''/>
+        <img src={`${process.env.PUBLIC_URL}/${image.logo}`} alt=''/>
         <Link className="bouton" type="submit" to="/">Liste Pokemon (Accueil)</Link>
         <Link className="bouton" type="submit" to="/gestion">Mon Pokemon</Link>
         <br/>

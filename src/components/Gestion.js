@@ -1,5 +1,6 @@
 import React , {useState} from 'react';
 import API from './API';
+import '../Styles/Accueil.css';
 
 export default function Gestion() {
 
