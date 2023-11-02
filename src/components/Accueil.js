@@ -1,5 +1,5 @@
 import React from 'react'
-// import API from './components/API'
+import API from './API'
 import Ajouter from './Ajouter.js'
 
 export default function Accueil() {
@@ -7,6 +7,7 @@ export default function Accueil() {
     <div className='page'>
         {/* <API/> */}
         <Ajouter/>
+        {/* <API/> */}
         <br/>
     </div>
   )
