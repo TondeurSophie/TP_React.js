@@ -41,26 +41,28 @@ function PokemonDetail({ url }, pokemonList) {
   const ajouter = () => {
         
     const ls = localStorage; //sauvegarde les valeurs du Local Storage
-     ls.setItem(pokemonList, "value")//reprend la valeur inscrit dans l'input pour l'ajouter dans la localStorage
-     window.location.reload()
+    ls.setItem(pokemonList, "value")//ajouter dans la localStorage de l'api
+    window.location.reload()
  }
 
   return (
     <div className='page'>
         <br/>
         <span><b>Liste des Pokémons</b></span>
-        {Object.keys(ls).map(pokemonList => (
-            <div className='case'>
-                <p pokemonList={pokemonList}>
-                <h1>{pokemon.name}</h1>
-                <p>Numéro: {pokemon.id}</p>
-                {/* Si plusieurs type affiche tous les types du pokemon à partir du tableau */}
-                <p>Type(s): {pokemon.types.map(type => type.type.name).join(', ')}</p>
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-                <br/>
-                <button className="bouton_add" onClick={ajouter} >Ajouter au Pokédex</button>
-                </p>
-            </div>
+
+        {Object.keys(ls).slice(0,1).map(pokemonList => (
+            <center>
+            <p className='case' pokemonList={pokemonList}>
+            <h1 >{pokemon.name}</h1>
+            <p>Numéro: {pokemon.id}</p>
+            {/* Si plusieurs type affiche tous les types du pokemon à partir du tableau */}
+            <p>Type(s): {pokemon.types.map(type => type.type.name).join(', ')}</p>
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            <br/>
+            <button className="bouton_add" onClick={ajouter} >Ajouter au Pokédex</button>
+            <br/>
+            </p>
+            </center>
         ))}
     </div>
   );
