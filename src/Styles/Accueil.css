@@ -1,3 +1,20 @@
 .page{
-    background-color: rgb(177, 166, 166);
+    background-color: rgb(209, 199, 199);
+}
+
+.bnt_move{
+    background-color: rgb(216, 78, 78);
+    margin:10px;
+    border-radius: 5%;
+    color: white;
+    width: 200%;
+    height: 100%;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }

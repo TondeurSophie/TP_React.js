@@ -28,10 +28,7 @@ function PokemonDetail({ url }, pokemonList) {
   const ls = localStorage;
 
   useEffect(() => {
-    fetch(url)
-      .then(reponse => reponse.json())
-      .then(data => setPokemon(data))
-  }, [url]);
+    fetch(url).then(reponse => reponse.json()).then(data => setPokemon(data)).catch(error => console.error(error));}, [url]);
 //Si pas de pokemon affichage 
   if (!pokemon) {
     return <div>Chargement en cours...</div>;
