@@ -1,21 +1,24 @@
 import React , {useState} from 'react';
 import API from './API';
-import '../Styles/Accueil.css';
+import '../Styles/Gestion.css';
 
 export default function Gestion() {
 
     const recherche=["au revoir", "bonjour", "hello", "good", "adieu"];
+    // const test = pokemon.name;
     const [value, setValue] = useState("");
 
+    
+    
     function handleChange(e){
         setValue(e.target.value)
     }
-
-  return (
-    <div>Gestion
+    
+    return (
+        <div>Gestion
         <div>
-            {/* <API data={pokemon.name}/> */}
 
+            {/* <API test={pokemon.name}/> */}
             <input type='text' value={value} onChange={handleChange}></input>
             <button><span>Rechercher</span></button>
             <ul>
@@ -25,6 +28,7 @@ export default function Gestion() {
                 }
 
             </ul>
+            <button type='button'>Supprimer le Pokédex</button>
         </div>
 
 
