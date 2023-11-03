@@ -14,14 +14,7 @@ export default function PokemonDetail({url}) {
     if (!pokemon) {
       return <div>Chargement en cours...</div>;
     }
-//   //Ajout au localstorage
-//     const ajouter = () => {
-//       ls.setItem(pokemon.name, JSON.stringify(pokemon));
-//       console.log(ls);
-//     //   ls.clear();
-//       //window.location.reload();
-//     };
-  
+
     return (
       <div className='case'>
         {/* affichage des informations des pokemons */}

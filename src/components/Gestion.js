@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 //applique le code css de ce fichier
 import '../Styles/Gestion.css';
 import Pokedex from './Pokedex';
+import Ajouter from './Ajouter';
+
 
 export default function Gestion() {
     //définitions des termes
@@ -46,11 +48,16 @@ export default function Gestion() {
       <input type="search" onChange={handleChange} placeholder="Rechercher"/>
       {Resultat.length > 0 ? (
         <ul>
+            <center>
             {/*affichage du nom du pokemon*/}
           {Resultat.map((pokemon, index) => (
-            <p key={index}>{pokemon.name} </p>
-            
-          ))}
+              <p key={index}>{pokemon.name} 
+              <Ajouter url={pokemon.url}/>
+              </p>
+              
+              
+              ))}
+            </center>
         </ul>
         
       ) : (
