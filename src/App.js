@@ -13,7 +13,7 @@ function App() {
       <div className="header">
       <img src={`${process.env.PUBLIC_URL}/logo-Pokemon.png`} alt='Pokémon_logo' className='image'/>
         <Link className="bouton" type="submit" to="/">Liste Pokemon (Accueil)</Link>
-        <Link className="bouton" type="submit" to="/gestion">Mon Pokemon</Link>
+        <Link className="bouton" type="submit" to="/gestion">Mon Pokédex</Link>
         <br/>
       </div>
 

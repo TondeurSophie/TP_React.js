@@ -1,37 +1,49 @@
-import React , {useState} from 'react';
-import API from './API';
+import React, { useState, useEffect } from "react";
 import '../Styles/Gestion.css';
 
 export default function Gestion() {
+  const [Recherche, setRecherche] = useState('');
+  const [Resultat, setResultat] = useState([]);
+  const [pokemonList, setPokemonList] = useState([]);
 
-    const recherche=["au revoir", "bonjour", "hello", "good", "adieu"];
-    // const test = pokemon.name;
-    const [value, setValue] = useState("");
+  useEffect(() => {
+    chargementPokemonList();
+  }, []);
 
-    
-    
-    function handleChange(e){
-        setValue(e.target.value)
-    }
-    
-    return (
-        <div>Gestion
-        <div>
+  const chargementPokemonList = () => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=12").then((res) => res.json()).then((data) => {
+        setPokemonList(data.results);
+      })
+      .catch((e) => {
+        console.log("error:", e);
+      });
+  };
 
-            {/* <API test={pokemon.name}/> */}
-            <input type='text' value={value} onChange={handleChange}></input>
-            <button><span>Rechercher</span></button>
-            <ul>
-                {
-                    value && (recherche.filter((element) => element.includes(value))
-                    .map((element, index) => <p key={index}> {element}</p>))
-                }
+  const handleChange = (event) => {
+    const valeur = event.target.value;
+    setRecherche(valeur);
 
-            </ul>
-            <button type='button'>Supprimer le Pokédex</button>
-        </div>
+    const filteredPokemonList = pokemonList.filter((pokemon) =>
+      pokemon.name.includes(valeur)
+    );
 
+    setResultat(filteredPokemonList);
+  };
 
+  return (
+    <div>
+      <input type="search" onChange={handleChange} placeholder="Rechercher"/>
+      {Resultat.length > 0 ? (
+        <ul>
+          {Resultat.map((pokemon, index) => (
+            <p key={index}>{pokemon.name} </p>
+            
+          ))}
+        </ul>
+        
+      ) : (
+        <h5> Aucun résultat </h5>
+      )}
     </div>
-  )
+  );
 }

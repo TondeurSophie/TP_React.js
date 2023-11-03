@@ -4,7 +4,7 @@ import '../Styles/Accueil.css';
 
 export default function Accueil() {
   return (
-    <div >
+    <div className='page'>
         <API/>
         <br/>
     </div>
