@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import '../Styles/Accueil.css';
+import PokemonDetail from './PokemonDetail';
 export default function Pokemon() {
   // Pour stocker la liste de Pokémon
   const [Liste, setListe] = useState([]); 
@@ -30,12 +32,14 @@ export default function Pokemon() {
       {loading ? (
         <div>Chargement en cours...</div>
       ) : (
-        <div>
+        <div >
           {Liste.map(pokemon => (
             <PokemonDetail key={pokemon.name} url={pokemon.url} />
           ))}
-          <button type="button" onClick={PagePrecedente}className='bnt_move'>Précédent</button>
-          <button type="button" onClick={PageSuivante}className='bnt_move'>Suivant</button>
+          <div className='footer'>
+            <button type="button" onClick={PagePrecedente} className='bnt_move'>Précédent</button>
+            <button type="button" onClick={PageSuivante} className='bnt_move'>Suivant</button>
+          </div>
         </div>
 
       )}
@@ -43,35 +47,36 @@ export default function Pokemon() {
   );
 }
 
-function PokemonDetail({ url }) {
-  const [pokemon, setPokemon] = useState(null);
-  const ls = localStorage;
+// function PokemonDetail({ url }) {
+//   const [pokemon, setPokemon] = useState(null);
+//   const ls = localStorage;
 
-  useEffect(() => {
-    fetch(url).then(response => response.json()).then(data => setPokemon(data)).catch(error => console.error(error));
-  }, [url]);
-//Evite les erreurs 
-  if (!pokemon) {
-    return <div>Chargement en cours...</div>;
-  }
-//Ajout au localstorage
-  const ajouter = () => {
-    ls.setItem(pokemon.name, JSON.stringify(pokemon));
-    window.location.reload();
-  };
+//   useEffect(() => {
+//     fetch(url).then(response => response.json()).then(data => setPokemon(data)).catch(error => console.error(error));
+//   }, [url]);
+// //Evite les erreurs 
+//   if (!pokemon) {
+//     return <div>Chargement en cours...</div>;
+//   }
+// //Ajout au localstorage
+//   const ajouter = () => {
+//     ls.setItem(pokemon.name, JSON.stringify(pokemon));
+//     window.location.reload();
+//   };
 
-  return (
-    <div>
-      <h1>{pokemon.name}</h1>
-      <p>Numéro: {pokemon.id}</p>
-      <p>Type(s): {pokemon.types.map(type => type.type.name).join(', ')}</p>
-      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-      <br />
-      <button className="bouton_add" onClick={ajouter}>
-        Ajouter au Pokédex
-      </button>
-      <br />
+//   return (
+//     <div>
+//       <h1>{pokemon.name}</h1>
+//       <p>Numéro: {pokemon.id}</p>
+//       <p>Type(s): {pokemon.types.map(type => type.type.name).join(', ')}</p>
+//       <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+//       <br />
+//       <button className="bouton_add" onClick={ajouter}>
+//         Ajouter au Pokédex
+//       </button>
+//       <br />
       
-    </div>
-  );
-}
+//     </div>
+//   );
+
+  

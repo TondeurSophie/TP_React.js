@@ -13,7 +13,7 @@ export default function LocalStorage({data}) {
         
        const ls = localStorage; //sauvegarde les valeurs du Local Storage
 
-        ls.setItem(pokemonList, "value")//reprend la valeur inscrit dans l'input pour l'ajouter dans la localStorage
+        ls.setItem(pokemonList, "value")//reprend la valeur inscrite dans l'input pour l'ajouter dans la localStorage
 
         window.location.reload()
     }
@@ -25,7 +25,6 @@ export default function LocalStorage({data}) {
         <br/>
         <span><b>Liste des Pokémons</b></span>
         <br/><br/>
-        {/* si on clique sur ajouter, ça execute la variable ci-dessus */}
         {Object.keys(ls).map(pokemonList => (
             <li pokemonList={pokemonList}>
                 <br/><br/>
