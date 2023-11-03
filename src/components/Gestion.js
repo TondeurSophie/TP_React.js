@@ -19,7 +19,7 @@ export default function Gestion() {
 
   const chargementPokemonList = () => {
     /*permet d'appeler l'API Pokemon*/
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=12").then((res) => res.json()).then((data) => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=1292").then((res) => res.json()).then((data) => {
         setPokemonList(data.results);
       })
       .catch((e) => {

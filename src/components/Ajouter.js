@@ -10,14 +10,13 @@ export default function Ajouter({url}) {
     fetch(url).then(response => response.json()).then(data => setPokemon(data)).catch(error => console.error(error));
   }, [url]);
 
-// console.log(url)
 
   //Ajout au localstorage
     const ajouter = () => {
       ls.setItem(pokemon.name, JSON.stringify(pokemon));
       console.log(ls);
     //   ls.clear();
-      //window.location.reload();
+      window.location.reload();
     };
 
   return (

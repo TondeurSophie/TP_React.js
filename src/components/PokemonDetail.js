@@ -24,9 +24,7 @@ export default function PokemonDetail({url}) {
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
         <br />
         <Ajouter url={url}/> {/*appelation du fichier Ajouter.js*/}
-        {/* <button className="bouton_add" onClick={ajouter}>
-          Ajouter au Pokédex
-        </button> */}
+        
         <br />
         
       </div>
