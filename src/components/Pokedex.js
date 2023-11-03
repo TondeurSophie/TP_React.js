@@ -24,9 +24,10 @@ const supprimer = (key) => {
     window.location.reload();
 }
 
-// const toutSup = () =>{
-//     ls.clear();
-// }
+const toutSup = () =>{
+    ls.clear();
+    window.location.reload();
+}
 
 
   return (
@@ -34,7 +35,10 @@ const supprimer = (key) => {
       
       {Object.keys(ls).map(key =>(
         key
-      ))}
+        
+        ))}
+        <button onClick={supprimer} >Supprimer du Pokédex</button>
+        
       {/* {Object.keys(ls).map(key =>(
         <p key={key}>
         <br/><br/>
@@ -50,7 +54,7 @@ const supprimer = (key) => {
         {/* </p>
       ))} */}
       <br /> 
-      {/* <button onClick={toutSup}>Supprimer tout le Pokédex</button> */}
+      <button onClick={toutSup}>Supprimer tout le Pokédex</button>
     </div>
   );
 }
