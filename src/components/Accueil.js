@@ -5,7 +5,7 @@ import '../Styles/Accueil.css';
 export default function Accueil() {
   return (
     <div className='page'>
-        <API/>
+        <API/> {/*permet d'éxecuter le code du fichier API.js à cette endroit*/}
         <br/>
     </div>
   )
