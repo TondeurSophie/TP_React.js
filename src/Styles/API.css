@@ -1,0 +1,15 @@
+.page{
+    background-color: rgb(219, 215, 215);    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.case{
+    background-color: rgb(255, 255, 255);
+    height: 120%;
+    width: 120%;
+    border-radius: 10%;
+    
+}
